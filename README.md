@@ -2,7 +2,8 @@
 
 # DevCommeLesPros-2020-Projet
 
-Modèle de départ pour le projet de programmation à effectuer en groupe de deux ou trois étudiants. Vous n'êtes pas dans l'obligation de garder exactment les mêmes binômes que pour les exercices précédents.
+Modèle de départ pour le projet de programmation à effectuer en groupe de deux ou trois étudiants.
+Vous n'êtes pas dans l'obligation de garder exactment les mêmes binômes que pour les exercices précédents.
 
 # Objectif
 
@@ -11,7 +12,8 @@ Vous avez à créer un programme qui simule cette plateforme.
 
 # Spécifications fonctionelles
 
-Sur cette platforme, on distingue trois profils d'utilisateur avec des besoins propres. Les entreprises, les chercheurs d'emploi et les employés.
+Sur cette platforme, on distingue trois profils d'utilisateur avec des besoins propres.
+Les entreprises, les chercheurs d'emploi et les employés.
 
 ## Fonctionalités pour une entreprise
 
@@ -66,7 +68,7 @@ Lorsqu'un checheur d'emploi est embauché, son profil transitionne vers «employ
 
 C'est bien d'être à l'emploi mais pour diverses raisons il peut arriver qu'on veuille quand même s'informer sur les postes à pourvoir pour trouver un travail plus rémunérateur, plus près de chez soi, etc.
 
-Lorsqu'un un employé quitte ou perd son emploi et est en recherche d'emploi, son prfil transitionne vers «checheur d'emploi».
+Lorsqu'un un employé quitte ou perd son emploi et est en recherche d'emploi, son profil transitionne vers «checheur d'emploi».
 
 - [ ] Créer un profil
     - [ ] Nom
@@ -82,7 +84,7 @@ Lorsqu'un un employé quitte ou perd son emploi et est en recherche d'emploi, so
     - [ ] Modifier le code postal
     - [ ] Modifier l'entreprise
 - [ ] Transitionner le profil «employé» vers «chercheur d'emploi»
-    - [ ] Les employé(e)s de l'entreprise quittée s'ajoute automatiquement à liste des ancien(ne)s collègues de travail
+    - [ ] Les employé(e)s de l'entreprise quittée s'ajoutent automatiquement à liste des ancien(ne)s collègues de travail
 - [ ] Supprimer le profil
 - [ ] Rechercher parmi les les postes à pourvoir qui correspondent au profil de l'employé
     - [ ] Recherche par compétences
@@ -135,9 +137,11 @@ Votre choix ('q' pour quitter, 'p' pour menu précédent) :
 
 ## Format de la base de données
 
-Les tables de la base de données suivent le même format que la table utilisée dans l'exercice 4 (`groupe.csv`) où les champs sont séparés par des virgules. Si un champ contient plusieurs valeurs, celles-ci sont séparées par des points-virgules. 
+Les tables de la base de données suivent le même format que la table utilisée dans l'exercice 4 (`groupe.csv`) où les champs sont séparés par des virgules.
+Si un champ contient plusieurs valeurs, celles-ci sont séparées par des points-virgules. 
 
-À chaque tuple dans une table est assigné une clé primaire avec un numéro unique dans cette table. Aussi, certains attributs peuvent être des clés étrangères.
+À chaque tuple dans une table est assigné une clé primaire avec un numéro unique dans cette table.
+Aussi, certains attributs peuvent être des clés étrangères.
 
 Quelques exemples :
 
@@ -181,17 +185,29 @@ id,nom,prenom,mail,code postal,competences,collegues,entreprise
 3,Mouse,Minnie,minnie@mickeyville.gov,77700,comedie;chant,2,1
 ```
 
+## Langage de programmation et paramètres de compilateur
+
+Le projet peut être écrit en C ou en C++.
+
+Utilisez les paramètres `-Werror -Wall -pedantic` au moment de compiler.
+
+> `-Werror` ? C'est nouveau.
+
+Oui, ce paramètre transforme les avertissments du compilateur en erreur. 
+C'est une façon de se forcer à écouter ce que nous dit le compilateur à propos de code potentiellement incorrect ou dangereux.
+
+## Journal
+
+Le programme devra produire un [journal](https://www.dropbox.com/scl/fi/12l29vxc1v4z74wum6ay3/D-velopper-comme-les-pros.paper?dl=0&rlkey=gbd3b2ajnlo93wz6xvsph5bcu#:uid=877002050135560344832464&h2=D%C3%A9boguer-par-journal) de toute les opérations exécutées.
+Les informations dans le journal persistent entre les utilisations du programme. C'est-à-dire que le fichier servant de journal n'est pas remis à zéro quand vous lancez le programme.
+
 # Instructions de travail
 
 Suivez les instructions de départ et les instructions de travail de l'exercice 4 avec deux exceptions :
 1. Vous pouvez travailler en groupe de deux ou trois.
-1. La personne qui approuve et fusionne un «Pull Request» ne doit pas être la personne qui a ouvert le «Pull Request». C'est-à-dire que si Alice pousse sa branche vers GitHub et ouvre un «Pull Request» pour demander de la fusionner à la branche `master`, ce doit être Bob ou Charlie qui approuvera et fusionnera.
-
-## Étapes de développement
-
-tag pre-alpha, alpha, beta, 1.0, 
-
-release 1.0
+1. La personne qui approuve et fusionne un «Pull Request» ne doit pas être la personne qui a ouvert le «Pull Request».
+C'est-à-dire que si Alice pousse sa branche vers GitHub et ouvre un «Pull Request» pour demander de la fusionner à la branche `master`, ce doit être Bob ou Charlie qui approuvera et fusionnera.
+Il incombe à Bob ou Charlie de confirmer que les tests ont bien passés sur la machine virtuelle de GitHub.
 
 ## Modules/Bibliothèques
 
@@ -199,42 +215,57 @@ Vous serez tentés d'essayer d'écrire ce programme de façon monolithique avec 
 Résistez à cette tentation !
 La collaboration entre vous serait très difficile.
 
-Travaillez ensemble pour déterminez de quels modules vous aurez besoin ainsi que leurs responsabilités (manipulation des DBs, fonctionalités entreprise/employé/chercheur, interface/menus, documentation, etc.), Déterminez aussi quels sont les dépendances entre les modules et quelles sont les fonctions requises des modules. Ensuite, vous pourez travaillez plus individuellement aux tâches que vous vous serez assignées sachant qui a besoin de quoi.
+Travaillez ensemble pour déterminez de quels modules vous aurez besoin ainsi que leurs responsabilités (manipulation des DBs, fonctionalités entreprise/employé/chercheur, interface/menus, documentation, journal, etc.).
+Déterminez aussi quels sont les dépendances entre les modules et quelles sont les fonctions requises des modules.
+Ensuite, vous pourez travaillez plus individuellement aux tâches que vous vous serez assignées sachant qui a besoin de quoi.
 
 > Mais si mon module doit appeller une fonction d'une autre module qui n'existe pas encore ?
 
-Rappellez-vous des exercices précédents où vous aviez à implémenter des fonctions «vides». Ces fonctions ou méthodes s'appellent des [bouchons](https://fr.wikipedia.org/wiki/Bouchon_(informatique)) (ou [stub](Method_stub) en anglais). Ces bouchons servent justement à deux choses :
+Rappellez-vous des exercices précédents où vous aviez à implémenter des fonctions «vides».
+Ces fonctions ou méthodes s'appellent des [bouchons](https://fr.wikipedia.org/wiki/Bouchon_(informatique)) (ou [stub](Method_stub) en anglais).
+Ces bouchons servent justement à deux choses :
 
-1. Faire en sorte qu'un module A qui dépend de la fonction d'un module B puisse être développé et compilé _comme si_ la fonction était implémentée. Bien sûr, au début la fonction retourne une fausse valeur mais on peut continuer le développement du module A quand même en faisant semblant.
-2. On peut écrire des tests avant même que la fonction soit implémentée. Connaissant la signature d'une fonction et ses responsabilités, on peut écrire des tests qui en vérifient le bon fonctionnement. Écrire des tests à l'avance est d'ailleurs une très bonne aide pour comprendre à quoi l'implémentation d'une fonction doit répondre : cas généraux, cas spéciaux, cas d'erreurs, etc.
+1. Faire en sorte qu'un module A qui dépend de la fonction d'un module B puisse être développé et compilé _comme si_ la fonction était implémentée. 
+Bien sûr, au début la fonction retourne une fausse valeur mais on peut continuer le développement du module A quand même en faisant semblant.
+2. On peut écrire des tests avant même que la fonction soit implémentée. 
+Connaissant la signature d'une fonction et ses responsabilités, on peut écrire des tests qui en vérifient le bon fonctionnement.
+Écrire des tests à l'avance est d'ailleurs une très bonne aide pour comprendre à quoi l'implémentation d'une fonction doit répondre : cas généraux, cas spéciaux, cas d'erreurs, etc.
 
 
 ## Tests
 
 Sans tests, vous n'aurez pas confiance ni en votre code ni en votre programme.
 
-En plus du programme qui sera votre application, écrivez en parallèle un autre programme. Un programme de tests qui rassemblera tout les tests que vous écrirez pour confirmer que vos modules opèrent correctement.
+En plus du programme qui sera votre application, écrivez en parallèle un autre programme.
+Un programme de tests qui rassemblera tout les tests que vous écrirez pour confirmer que vos modules opèrent correctement.
 
 > Mais si mon module dépend d'une fonction d'une autre module qui n'est pas encore implémentée ?
 
-Écrivez quand même vos tests quitte à les laisser commentés temporairement ! N'attendez pas que vos coéquipiers aient tout terminé pour commencer à travailler sur votre module. Vous perdriez un temps précieux.
+Écrivez quand même vos tests quitte à les laisser commentés temporairement !
+N'attendez pas que vos coéquipiers aient tout terminé pour commencer à travailler sur votre module.
+Vous perdriez un temps précieux.
 
 ### Tests unitaires et tests d'intégration
 
-Durant la première phase de développement, les tests que vous écrirez seront plutôt des test unitaires. C'est-à-dire des tests qui testent les divers modules en isolation.
+Durant la première phase de développement, les tests que vous écrirez seront plutôt des test unitaires.
+C'est-à-dire des tests qui testent les divers modules en isolation.
 
 Une fois que votre programme commence à se tenir debout vous pourrez commencer à le tester dans son ensemble, à le lancer à l'invite de commandes et l'utiliser comme un utilisateur lambda le ferait.
 
 ### Intégration continue
 
-Tout comme pour les exercices 3 et 4, ce projet est configuré [1] de telle sorte qu'en ouvrant un «Pull Request», GitHub lance une machine virtuelle Ubuntu qui clone votre dépôt et exécute la commande `make check` à l'invite de commande. De ce fait, assurez-vous que la cible `check` de votre `makefile` dépende de votre programme de test et le lance.
+Tout comme pour les exercices 3 et 4, ce projet est configuré [1] de telle sorte qu'en ouvrant un «Pull Request», GitHub lance une machine virtuelle Ubuntu qui clone votre dépôt et exécute la commande `make check` à l'invite de commande.
+De ce fait, assurez-vous que la cible `check` de votre `makefile` dépende de votre programme de test et le lance.
 
 Si la vérification du service d'intégration continu venait à échouer, il vous incombe d'apporter les modifications nécéssaires à votre branch (toujours en faisant `add`, `commit` et `push`) pour rectifier la situation.
 
-Essentiellement, je vous demande de travailler comme pour les exercices 3 et 4 en suivant leurs [instructions de travail](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex3#instructions-de-travail). Seulement, cette fois-ci, c'est vous qui écrirez les tests.
+Essentiellement, je vous demande de travailler comme pour les exercices 3 et 4 en suivant leurs [instructions de travail](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex4#instructions-de-travail). 
+Seulement, cette fois-ci, c'est vous qui écrirez les tests.
 
 
-[1] Curieux de savoir comment ? Ouvrez le fichier `.github/workflows/test-pull-request.yml`. Pour en savoir plus, cliquez [ici](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow).
+[1] Curieux de savoir comment ?
+Ouvrez le fichier `.github/workflows/test-pull-request.yml`.
+Pour en savoir plus, cliquez [ici](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow).
 
 ## Documentation
 
@@ -244,34 +275,101 @@ Essentiellement, je vous demande de travailler comme pour les exercices 3 et 4 e
 
 ### Documentation pour les utilisateurs
 
-Modifiez ce `README` que vous lisez présentement et écrivez le manuel d'instructions de votre programme. Décrivez-y les fonctionalités implémentés ainsi que, peut-être, les erreurs de manipulation à ne pas commettre. Ce sera le «[tuto](https://fr.wikipedia.org/wiki/Tutoriel)» de votre programme.
+Modifiez ce `README` que vous lisez présentement et écrivez le manuel d'instructions de votre programme.
+Décrivez-y les fonctionalités implémentés ainsi que, peut-être, les erreurs de manipulation à ne pas commettre.
+Ce sera le «[tuto](https://fr.wikipedia.org/wiki/Tutoriel)» de votre programme.
 
-Ici, vous pouvez laisser parler votre créativité. Comment aimeriez-_vous_ qu'on vous apprenne à utiliser ce programme ? Par exemple, si vous vous sentez l'âmes de comédiens, faites un tuto vidéo.
+Ici, vous pouvez laisser parler votre créativité.
+Comment aimeriez-_vous_ qu'on vous apprenne à utiliser ce programme ?
+Par exemple, si vous vous sentez l'âmes de comédiens, faites un tuto vidéo.
+
+## Étapes de développement
+
+L'évolution de votre travail suivra les [étapes de développement d'un projet](https://www.dropbox.com/scl/fi/12l29vxc1v4z74wum6ay3/D-velopper-comme-les-pros.paper?dl=0&rlkey=gbd3b2ajnlo93wz6xvsph5bcu#:uid=315118321024319072106121&h2=Stades-de-d%C3%A9veloppement).
+Vous devrez qualifier les transitions entre ces étapes dans votre dépôt en utilisant des [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging)s. 
+Un tag est un commit qui ne contient qu'une courte description.
+Cette description devra suivre les règles décrites [ici](https://semver.org/lang/fr/).
+
+Pour taguer votre dépôt, faites à l'invite de commandes : `> git tag -a [la-version] -m "Message pour ce tag."`. Par exemple : `> git tag -a 1.0.0-alpha -m "Tout les modules sont à peu près finis. L'application peut être utilisée et est prête à être testée."`
+
+Les tags doivent être «poussés» comme des commits.
+Après avoir créé un nouveau tag, faites à l'invite de commandes: `git push origin --tags`.
+
+### Pré-alpha
+
+C'est la première période de développement.
+Dès le départ votre projet est en phase pré-alpha.
+Vous pouvez, immédiatement après avoir créé votre nouveau dépôt, le taguer avec `1.0.0-alpha+pre`.
+
+### Alpha
+
+Lorsque vos modules sont suffisament implémentés pour que l'application puisse être lancée et utlisée, vous entrez dans la phase alpha.
+Il se peut que toutes les fonctionalités ne soient pas implémentées mais il y en a suffisament pour voir si les divers modules interagissent bien entre eux.
+À cette étape, il peut rester encore quelques fonctions bouchons.
+Taguez votre dépôt `1.0.0-alpha`.
+
+### Beta
+
+Quand toutes les fonctionalités sont implémentées mais qu'il reste encore des bogues, vous entrez dans la phase beta.
+Taguez votre dépôt `1.0.0-beta`.
+
+À cette étape, testez exhaustivement votre application.
+À chaque nouveau bogue découvert, écrivez un nouveau test.
+Demandez à vos «compétiteurs» de tester votre application.
+Ils seront impitoyables... et c'est ce qu'on veut !
+
+### Livraison
+
+Votre application est complétée et tout fonctionne pour le mieux.
+Félicitations !
+Cela vous vaut de taguer votre dépôt `1.0.0`.
+Vous croyez avoir terminé ?
+Pas tout à fait...
+
+### Support et fonctionalités additionelles
+
+Vous avez déjà officiellement tagué votre dépôt `1.0.0` mais vous venez de découvrir un nouveau bogue ?
+Qu'à cela ne tienne, continuez avec `1.0.n` si vous les réparez.
+
+La version `1.0.0` parfaite vous vaudra 17/20.
+Allez cherchez des points supplémentaires avec les [extras](#les-extras).
+À chaque nouvel extra, incrémentez le numéro de version mineur de votre dépôt. Par exemple `1.1.0`.
 
 # Évaluation
 
-- 
+- Travail étendue dans le temps, pas fait à la dernière minute.
+- -Werror
 - Bonne utilisation du service d'intégration continu.
     - La cibe `check` dans le `makefile` lance le programme de test.
     - Les «Pull Request» reçoivent la confirmation du service d'intégration continu que tout s'est bien passé.
 
-Vous avez tout bon ? Ça vaut 17 sur 20. Comment gagner d'autres points ? Continuez de lire...
+Vous avez tout bon ?
+Ça vaut 17 sur 20.
+Comment gagner d'autres points ?
+Continuez de lire...
 
 # Les extras
 
-Chacun de ces extras vaut 1 point sur 20. Il vous permettront donc d'atteindre 18, 19 ou 20 sur 20.
+Chacun de ces extras vaut 1 point sur 20.
+Il vous permettront donc d'atteindre 18, 19 ou 20 sur 20.
 
-*Ne tentez ces extras que si vous avez atteint l'objectif principal ! Ils ne valent aucuns points si votre programme ne répond pas aux exigences de base de votre «client».*
+*Ne tentez ces extras que si vous avez atteint l'objectif principal !
+Ils ne valent aucuns points si votre programme ne répond pas aux exigences de base de votre «client».*
 
-À chaque extra correctement implémenté, incrémentez la version mineure de votre programme (par ex. «1.1» pour le premier extra, «1.2» pour le deuxième extra, etc.) comme décrit dans la section [Étapes de développement](#étapes-de-développement).
+À chaque extra correctement implémenté, incrémentez la version mineure de votre programme (par ex. «1.1.0» pour le premier extra, «1.2.0» pour le deuxième extra, etc.) comme décrit dans la section [Étapes de développement](#étapes-de-développement).
 
-Voici une liste d'extras à envisager. Je les ai mis dans un ordre qui, selon moi, est du plus facile au plus difficile.
+Voici une liste d'extras à envisager.
+Je les ai mis dans un ordre qui, selon moi, est du plus facile au plus difficile.
 
-1. Le programme produit un [journal](https://www.dropbox.com/scl/fi/12l29vxc1v4z74wum6ay3/D-velopper-comme-les-pros.paper?dl=0&rlkey=gbd3b2ajnlo93wz6xvsph5bcu#:uid=877002050135560344832464&h2=D%C3%A9boguer-par-journal) de toute les opérations exécutées et les informations dans le journal persiste entre les utilisations du programme (c'est-à-dire que le fichier servant de journal n'est pas remis à zéro quand vous lancez le programme).
 1. Un utilisateur, que ce soit une entreprise ou une personne, s'authentifie avec un mot de passe (ne convervez pas le mot de passe en clair dans la table, utilisez une [fonction de hachage](https://fr.wikipedia.org/wiki/Fonction_de_hachage_cryptographique)).
-1. Gardez une historique d'emploi pour chaque personne et utilisez cette historique lors des recherche parmi les anciens collègues, c'est-à-dire «qui travaille *ou a déjà travaillé* à telle ou telle entreprise.
-1. Compressez toute la base de données par un codage de Huffman. Les fichiers sur le disque sont compressés. Ils sont décompressés en mémoire, modifiés au file des opérations et au moment de quitter le programme ils sont recompressés et écrit sur le disque. Les fichiers décompressés n'apparaîssent jamais sur le disque.
-1. Écrivez un programme de test qui lance votre programme d'application, exécute certaines commandes et vérifie que tout s'est bien déroulé et que la base de données contient les bonnes informations.
-1. Utilisez une [véritable base de données SQL](https://sqlite.org/cintro.html) plutôt que des fichers `.csv` (cet extra n'est pas compatible avec l'extra 3).
+1. Gardez une historique d'emploi pour chaque personne et utilisez cette historique lors des recherche parmi les anciens collègues.
+C'est-à-dire «qui travaille *ou a déjà travaillé* à telle ou telle entreprise.
+1. Compressez toute la base de données par un codage de Huffman.
+Les fichiers sur le disque sont compressés.
+Ils sont décompressés en mémoire, modifiés au file des opérations et au moment de quitter le programme ils sont recompressés et écrit sur le disque.
+Les fichiers décompressés n'apparaîssent jamais sur le disque, ni pendant, ni après l'utilisation du programme. 
+1. Écrivez un programme de test qui lance votre programme d'application, exécute certaines commandes comme le ferait un utlisateur humain et vérifie que tout s'est bien déroulé et que la base de données contient les bonnes informations.
+1. Utilisez une [véritable base de données SQL](https://sqlite.org/cintro.html) plutôt que des fichers `.csv` (cet extra n'est pas compatible avec l'extra 4).
 
-Vous avez une autre idée d'extra ? Faites-la approuver par votre «client» au préalable.
+Vous avez une autre idée d'extra ?
+Faites-la approuver par votre «client» au préalable.
