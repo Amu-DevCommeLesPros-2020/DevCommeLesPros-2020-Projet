@@ -6,10 +6,7 @@ Modèle de départ pour le projet de programmation à effectuer en groupe de deu
 Vous n'êtes pas dans l'obligation de garder exactment les mêmes équipes que pour les exercices précédents.
 
 # Table des matières
-<!-- TOC -->
 
-- [DevCommeLesPros-2020-Projet](#devcommelespros-2020-projet)
-- [Table des matières](#table-des-mati%C3%A8res)
 - [Objectif](#objectif)
 - [Spécifications fonctionelles](#sp%C3%A9cifications-fonctionelles)
     - [Fonctionalités pour une entreprise](#fonctionalit%C3%A9s-pour-une-entreprise)
@@ -44,8 +41,6 @@ Vous n'êtes pas dans l'obligation de garder exactment les mêmes équipes que p
     - [La méthode de développement](#la-m%C3%A9thode-de-d%C3%A9veloppement)
 - [Les extras](#les-extras)
 
-<!-- /TOC -->
-
 # Objectif
 
 Le site [LinkedIn](https://linkedin.com) est un réseau social servant de rapprochement et de moyen de contact entre des entreprises, des demandeurs d'emploi et d'anciens collègues travail.
@@ -69,13 +64,18 @@ Elle peut aussi rechercher parmi les chercheurs d'emploi ceux qui correspondent 
     - [ ] Code postal
     - [ ] Adresse mail
 - [ ] Supprimer un profil
+    - [ ] Supprime automatiquement les postes à pourvoir existant
 - [ ] Créer le profil d'un poste à pourvoir
     - [ ] Titre
-    - [ ] Compétences
+    - [ ] Compétences requises
 - [ ] Supprimer le profil d'un poste pourvu
 - [ ] Rechercher parmi les chercheurs d'emploi pour des profils qui correspondent à un poste à pourvoir
     - [ ] Recherche par compétences
     - [ ] Recherche par compétences et code postal
+    - [ ] Résultats
+        - [ ] Nom
+        - [ ] Prénom
+        - [ ] Adresse mail
 
 ## Fonctionalités pour un chercheur d'emploi
 
@@ -96,7 +96,7 @@ Lorsqu'un checheur d'emploi est embauché, son profil transitionne vers «employ
     - [ ] Modifier le code postal
 - [ ] Transitionner le profil de «chercheur d'emploi» à un profil «employé»
 - [ ] Supprimer un profil
-- [ ] Rechercher parmi les les postes à pourvoir qui correspondent au profil du chercheur d'emploi
+- [ ] Rechercher parmi les les postes à pourvoir qui correspondent à son profil
     - [ ] Recherche par compétences
     - [ ] Recherche par compétences et code postal
     - [ ] Résultats
@@ -105,13 +105,14 @@ Lorsqu'un checheur d'emploi est embauché, son profil transitionne vers «employ
         - [ ] Adresse mail de l'entreprise
         - [ ] Code postal de l'entreprise
 - [ ] Rechercher parmi les anciens collègues
-    - [ ] Recherche par entreprise
-    - [ ] Recherche par compétence et entreprise
+    - [ ] Recherche par entreprise (retoune les ancien(ne)s collègues employés à l'entreprise)
+    - [ ] Recherche par compétences (pour les compétences du chercheur d'emploi, retourne les ancien(ne)s collègues employés aux entreprises qui recherchent ces compétences)
     - [ ] Résultats
         - [ ] Nom du (de la) collègue
+        - [ ] Prénom du (de la) collègue
         - [ ] Adresse mail du (de la) collègue
 
-## Fonctionalité pour un employé
+## Fonctionalités pour un employé
 
 C'est bien d'être à l'emploi mais pour diverses raisons il peut arriver qu'on veuille quand même s'informer sur les postes à pourvoir pour trouver un travail plus rémunérateur, plus près de chez soi, etc.
 
@@ -142,10 +143,11 @@ Lorsqu'un un employé quitte ou perd son emploi et est en recherche d'emploi, so
         - [ ] Adresse mail de l'entreprise
         - [ ] Code postal de l'entreprise
 - [ ] Rechercher parmi les anciens collègues
-    - [ ] Recherche par entreprise
-    - [ ] Recherche par compétence et entreprise
+    - [ ] Recherche par entreprise (retoune les ancien(ne)s collègues employés à l'entreprise)
+    - [ ] Recherche par compétences (pour les compétences du chercheur d'emploi, retourne les ancien(ne)s collègues employés aux entreprises qui recherchent ces compétences)
     - [ ] Résultats
         - [ ] Nom du (de la) collègue
+        - [ ] Prénom du (de la) collègue
         - [ ] Adresse mail du (de la) collègue
 
 # Spécifications de conception
@@ -255,10 +257,6 @@ Utilisez les paramètres `-Wall -pedantic -Werror` au moment de compiler.
 Oui, ce paramètre transforme les avertissments du compilateur en erreur. 
 C'est une façon de se forcer à écouter ce que nous dit le compilateur à propos de code potentiellement incorrect ou dangereux.
 
-> Vous avez mis `false` pour la cible `check` dans le makefile. Du coup, ça nous a fait un échec sur GitHub dès le premier «Pull Request».
-
-Je sais. C'est pour vous aider à bien faire les choses. `false` est littéralement un programme qui ne fait que retourner un code d'erreur. Remplacez `false` par autre chose tout de suite.
-
 ## Journal
 
 Le programme devra produire un [journal](https://www.dropbox.com/scl/fi/12l29vxc1v4z74wum6ay3/D-velopper-comme-les-pros.paper?dl=0&rlkey=gbd3b2ajnlo93wz6xvsph5bcu#:uid=877002050135560344832464&h2=D%C3%A9boguer-par-journal) de toute les opérations exécutées.
@@ -278,14 +276,14 @@ Vous serez tentés d'essayer d'écrire ce programme de façon monolithique avec 
 Résistez à cette tentation !
 La collaboration entre vous serait très difficile.
 
-Travaillez ensemble pour déterminez de quels modules vous aurez besoin ainsi que leurs responsabilités (manipulation des DBs, fonctionalités entreprise/employé/chercheur, interface/menus, documentation, journal, etc.).
-Déterminez aussi quels sont les dépendances entre les modules et quelles sont les fonctions requises des modules.
-Ensuite, vous pourez travaillez plus individuellement aux tâches que vous vous serez assignées sachant qui a besoin de quoi.
+Travaillez ensemble pour déterminez de quels bibliothèques vous aurez besoin ainsi que leurs responsabilités (manipulation des base de données, fonctionalités entreprise/employé/chercheur, interface/menus, documentation, journal, etc.).
+Déterminez aussi quels sont les dépendances entre les bibliothèques et quelles sont les fonctions requises des bibliothèques.
+Ensuite vous pourez travaillez plus individuellement aux tâches que vous vous serez assignées sachant qui a besoin de quoi.
 
 > Mais si mon module doit appeller une fonction d'une autre module qui n'existe pas encore ?
 
 Rappellez-vous des exercices précédents où vous aviez à implémenter des fonctions «vides».
-Ces fonctions ou méthodes s'appellent des [bouchons](https://fr.wikipedia.org/wiki/Bouchon_(informatique)) (ou [stub](Method_stub) en anglais).
+Ces fonctions ou méthodes s'appellent des [bouchons](https://fr.wikipedia.org/wiki/Bouchon_(informatique)) (ou [stub](https://en.wikipedia.org/wiki/Method_stub) en anglais).
 Ces bouchons servent justement à deux choses :
 
 1. Faire en sorte qu'un module A qui dépend de la fonction d'un module B puisse être développé et compilé _comme si_ la fonction était implémentée. 
@@ -294,12 +292,25 @@ Bien sûr, au début la fonction retourne une fausse valeur mais on peut continu
 Connaissant la signature d'une fonction et ses responsabilités, on peut écrire des tests qui en vérifient le bon fonctionnement.
 Écrire des tests à l'avance est d'ailleurs une très bonne aide pour comprendre à quoi l'implémentation d'une fonction doit répondre : cas généraux, cas spéciaux, cas d'erreurs, etc.
 
+Écrivez une première version de vos bibliothèques avec des fonctions bounchons et publiez-la sur votre dépôt.
+Vos coéquipiers pourront dès lors écrirent leur code en appellant ces fonctions.
+Même si elle ne font rien, au moins le code compilera.
+Écrivez ensuite les tests de vos fonctions et publiez-les.
+Finalement, implémentez vos fonctions et publiez-les.
+
 ## Tests
 
 Sans tests, vous n'aurez pas confiance ni en votre code ni en votre programme.
 En plus du programme qui sera votre application, écrivez en parallèle un autre programme.
-Un programme de tests qui rassemblera tout les tests que vous écrirez pour confirmer que vos modules opèrent correctement.
+Un programme de tests qui rassemblera tout les tests que vous écrirez pour confirmer que vos bibliothèques opèrent correctement.
 C'est ce programme de test qui sera lancé par la cible `check` du `makefile`.
+
+> Vous avez mis `false` pour la cible `check` dans le makefile. Du coup, ça nous a fait un échec sur GitHub dès le premier «Pull Request».
+
+Je sais.
+C'est pour vous aider à bien faire les choses.
+`false` est littéralement un programme qui ne fait que retourner un code d'erreur.
+Remplacez `false` par autre chose tout de suite.
 
 > Mais si mon module dépend d'une fonction d'une autre module qui n'est pas encore implémentée ?
 
@@ -320,7 +331,6 @@ Tout comme pour les exercices 3 et 4, ce projet est configuré [1] de telle sort
 De ce fait, assurez-vous que la cible `check` de votre `makefile` dépende de votre programme de test et le lance.
 
 Si la vérification du service d'intégration continu venait à échouer, il vous incombe d'apporter les modifications nécéssaires à votre branch (toujours en faisant `add`, `commit` et `push`) pour rectifier la situation.
-
 Essentiellement, je vous demande de travailler comme pour les exercices 3 et 4 en suivant leurs [instructions de travail](https://github.com/thierryseegers/DevCommeLesPros-2020-Ex4#instructions-de-travail). 
 Seulement, cette fois-ci, c'est vous qui écrirez les tests.
 
@@ -333,7 +343,7 @@ Pour en savoir plus, cliquez [ici](https://help.github.com/en/actions/configurin
 ### Documentation pour les ingénieurs
 
 Votre code doit être bien documenté pour vous-même et vos coéquipiers.
-La documentation des fonctions dans les fichiers d'en-tête sert de moyen de communication entre l'auteur de la fonction et cuex qui auront à l'appeller.
+La documentation des fonctions dans les fichiers d'en-tête sert de moyen de communication entre l'auteur de la fonction et ceux qui auront à l'appeller.
 La documentation du code à l'intérieur des fonctions sert à qui que ce soit qui aura à entretenir la fonction et à la déboguer.
 
 Un diagramme UML représentant graphiquement les dépendances entre les divers modules est aussi un excellent outil de communication entre les programmeurs.
@@ -348,9 +358,9 @@ Ici, vous pouvez laisser parler votre créativité.
 Comment aimeriez-_vous_ qu'on vous apprenne à utiliser ce programme ?
 Par exemple, si vous vous sentez des âmes de comédiens, faites un tuto vidéo.
 
-## Stades de développement
+## Phases de développement
 
-L'évolution de votre travail suivra les [étapes de développement d'un projet](https://www.dropbox.com/scl/fi/12l29vxc1v4z74wum6ay3/D-velopper-comme-les-pros.paper?dl=0&rlkey=gbd3b2ajnlo93wz6xvsph5bcu#:uid=315118321024319072106121&h2=Stades-de-d%C3%A9veloppement).
+L'évolution de votre travail suivra les [stades de développement d'un projet](https://www.dropbox.com/scl/fi/12l29vxc1v4z74wum6ay3/D-velopper-comme-les-pros.paper?dl=0&rlkey=gbd3b2ajnlo93wz6xvsph5bcu#:uid=315118321024319072106121&h2=Stades-de-d%C3%A9veloppement).
 Vous devrez qualifier les transitions entre ces étapes dans votre dépôt en utilisant des [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging)s sur votre branche `master`. 
 Un tag est un commit qui ne contient qu'une courte description.
 Cette description devra suivre les règles décrites [ici](https://semver.org/lang/fr/).
@@ -362,16 +372,20 @@ Après avoir créé un nouveau tag, faites à l'invite de commandes: `git push o
 
 ### Pré-alpha
 
-C'est le premier stade de développement.
+C'est la première phase de développement.
 Dès le départ votre projet est en phase pré-alpha.
 Vous pouvez, immédiatement après avoir créé votre nouveau dépôt, le taguer avec `1.0.0-alpha+pre`.
+
+Temps estimé de la phase pré-alpha : quatre à cinq semaines.
 
 ### Alpha
 
 Lorsque vos modules sont suffisament implémentés pour que l'application puisse être lancée et utlisée, vous entrez dans la phase alpha.
 Il se peut que toutes les fonctionalités ne soient pas toutes implémentées mais il y en a suffisament pour voir si les divers modules interagissent bien entre eux.
-À cestade, il peut rester encore quelques fonctions bouchons.
+À ce stade, il peut rester encore quelques fonctions bouchons.
 Taguez votre dépôt `1.0.0-alpha`.
+
+Temps estimé de la phase alpha : une à deux semaines.
 
 ### Beta
 
@@ -383,11 +397,16 @@ Taguez votre dépôt `1.0.0-beta`.
 Demandez à vos «compétiteurs» de tester votre application.
 Ils seront impitoyables... et c'est ce qu'on veut !
 
+C'est aussi le bon moment de produire la documentation pour l'utilisateur car votre interface est figée et vous savez quelles fonctionalités sont présentes.
+
+Temps estimé de la phase beta : une à deux semaines.
+
 ### Livraison
 
 Votre application est complétée et tout fonctionne pour le mieux.
 Félicitations !
-Cela vous vaut de taguer votre dépôt `1.0.0` et de publier une «release» officielle. Suivez [ces instructions](https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository).
+Cela vous vaut de taguer votre dépôt `1.0.0` et de publier une «release» officielle.
+Suivez [ces instructions](https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository).
 
 Vous croyez avoir terminé ?
 Pas tout à fait...
@@ -397,15 +416,15 @@ Pas tout à fait...
 Vous avez déjà officiellement tagué votre dépôt `1.0.0` mais vous venez de découvrir un ou deux nouveaux bogues ?
 Qu'à cela ne tienne, continuez avec `1.0.n` si vous les réparez.
 
-La version `1.0.0` parfaite vous vaudra 17/20.
-Allez cherchez des points supplémentaires avec les [extras](#les-extras).
+La version `1.0.0` parfaite vous vaudra 18/20.
+Allez chercher des points supplémentaires avec les [extras](#les-extras).
 À chaque nouvel extra implémenté, incrémentez le numéro de version mineur de votre dépôt. Par exemple `1.1.0`.
 
 # Évaluation
 
 La date d'évaluation est le *vendredi 29 mai à 23:59*. Le code écrit passé cette date ne sera pas considéré.
 
-Votre travail sera évalué sur les points suivants :
+Votre travail sera évalué sur les points suivants.
 
 ## La base de code
 
@@ -428,19 +447,19 @@ Votre travail sera évalué sur les points suivants :
 - Respect des instructions de travail.
 
 Vous avez tout bon ?
-Ça vaut 17 sur 20.
+Ça vaut 18 sur 20.
 Comment gagner d'autres points ?
 Continuez de lire...
 
 # Les extras
 
 Chacun de ces extras vaut 1 point sur 20.
-Il vous permettront donc d'atteindre 18, 19 ou 20 sur 20.
+Il vous permettront donc d'atteindre 19 ou 20 sur 20.
 
 *Ne tentez ces extras que si vous avez atteint l'objectif principal !
 Ils ne valent aucuns points si votre programme ne répond pas aux exigences de base décritent dans les [spécifications fonctionnelles](#sp%C3%A9cifications-fonctionelles).*
 
-À chaque extra correctement implémenté, incrémentez la version mineure de votre programme (par ex. «1.1.0» pour le premier extra, «1.2.0» pour le deuxième extra, etc.) comme décrit dans la section [Étapes de développement](#étapes-de-développement).
+À chaque extra correctement implémenté, incrémentez la version mineure de votre programme (par ex. «1.1.0» pour le premier extra, «1.2.0» pour le deuxième extra) comme décrit dans la section [Phases de développement](#Phases-de-d%C3%A9veloppement).
 
 Voici une liste d'extras à envisager.
 Je les ai mis dans un ordre qui, selon moi, est du plus facile au plus difficile.
@@ -453,7 +472,7 @@ Les fichiers sur le disque sont compressés.
 Ils sont décompressés en mémoire, modifiés au fil des opérations et au moment de quitter le programme ils sont recompressés et écrit sur le disque.
 Les fichiers décompressés n'apparaîssent jamais sur le disque, ni pendant, ni après l'utilisation du programme. 
 1. Écrivez un programme de test qui lance votre programme d'application, exécute certaines commandes comme le ferait un utlisateur humain et vérifie que tout s'est bien déroulé et que la base de données contient les bonnes informations.
-1. Utilisez une [véritable base de données SQL](https://sqlite.org/cintro.html) plutôt que des fichers `.csv` (cet extra n'est pas compatible avec l'extra 4).
+1. Utilisez une [véritable base de données SQL](https://sqlite.org/cintro.html) plutôt que des fichers `.csv` (cet extra n'est pas compatible avec l'extra 3).
 
 Vous avez une autre idée d'extra ?
-Faites-la approuver par votre «client» au préalable.
+Faites-la approuver par votre «[client](thierry.seegers@yahoo.com)» au préalable.
