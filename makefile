@@ -16,4 +16,4 @@ all:
 
 # Lance le programme de test.
 check:
-	false
+	false && true
